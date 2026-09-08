@@ -58,27 +58,27 @@
                 </div>
                 <div class="flex justify-between text-black">
                     <span class="font-semibold text-gray-500 uppercase tracking-wider">Estat</span>
-                    <span id="orderStatus" class="font-normal text-black">-</span>
+                    <span id="orderStatus" class="font-normal text-black">{{ empty($currentOrder) ? "En curs" : "-" }}</span>
 
                 </div>
                 <div class="flex justify-between text-black">
                     <span class="font-semibold text-gray-500 uppercase tracking-wider">Data</span>
-                    <span id="orderDate" class="font-normal text-black tracking-wide"></span>
+                    <span id="orderDate" class="font-normal text-black tracking-wide">{{ empty($currentOrder) ? now()->format('d/m/Y H:i') : "-" }}</span>
                 </div>
             </div>
             <div class="col-span-4 space-y-2 text-[13px] font-normal"></div>
             <div class="col-span-4 space-y-2 text-[13px] font-normal">
                 <div class="flex justify-between text-black">
                     <span class="uppercase">Base Imposable</span>
-                    <span class="font-bold text-black tracking-wide"><span id="orderTaxableBasis"></span> €</span>
+                    <span class="font-bold text-black tracking-wide"><span id="orderTaxableBasis">{{ empty($currentOrder) ? number_format(0, 2, ',', '.') : "-" }}</span> €</span>
                 </div>
                 <div class="flex justify-between text-black">
                     <span>IVA (21%)</span>
-                    <span class="font-bold text-black tracking-wide"><span id="orderTax"></span> €</span>
+                    <span class="font-bold text-black tracking-wide"><span id="orderTax">{{ empty($currentOrder) ? number_format(0, 2, ',', '.') : "-" }}</span> €</span>
                 </div>
                 <div class="flex justify-between text-black">
                     <span>TOTAL</span>
-                    <span class="font-bold text-black tracking-wide"><span id="orderTotal"></span> €</span>
+                    <span class="font-bold text-black tracking-wide"><span id="orderTotal">{{ empty($currentOrder) ? number_format(0, 2, ',', '.') : "-" }}</span> €</span>
                 </div>
             </div>
         </div>
