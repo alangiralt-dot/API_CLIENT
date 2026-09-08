@@ -156,5 +156,21 @@
             </div>
         </main>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const token = sessionStorage.getItem('access_token');
+            const navLogin = document.getElementById('navLogin');
+            const navLogout = document.getElementById('navLogout');
+
+            if (token) {
+                navLogout.classList.remove('hidden');
+                navLogin.classList.add('hidden');
+
+            } else {
+                navLogout.classList.add('hidden');
+                navLogin.classList.remove('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
